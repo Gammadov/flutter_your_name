@@ -43,8 +43,8 @@ class TelegramSettings extends StatelessWidget {
             Container(
               color: Colors.white,
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              // child: Column(children: rowPanel),
-              child: MyRowPanel(),
+              child: Column(children: rowPanel),
+              // child: MyRowPanel(),
             )
           ],
         ),
