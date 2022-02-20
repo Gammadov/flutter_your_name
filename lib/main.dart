@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_your_name/screens/airport_scoreboard/airport_scoreboard.dart';
 import 'package:flutter_your_name/screens/noble_gases/noble_gases_screen.dart';
 import 'package:flutter_your_name/screens/telegram/settings_les47.dart';
 import 'package:flutter_your_name/screens/telegram/settings.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: NobleGasesScreen(), // подключаем свои виджеты к home
+      home: Scoreboard(), // подключаем свои виджеты к home
     );
 
   }
