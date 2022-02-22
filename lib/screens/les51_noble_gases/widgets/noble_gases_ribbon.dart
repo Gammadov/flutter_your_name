@@ -4,13 +4,13 @@
 
 2.1. Создайте в этом файле stless виджет NobleGasRibbon.
 
-2.2. Перенесите список List<List<String>> noble_gases
+2.2. Перенесите список List<List<String>> les51_noble_gases
      внутрь метода Widget build(BuildContext context).
 
 2.3.1. Внутри метода Widget build(BuildContext context)
        создайте пустой список с типом данных NobleGasItem.
        Назовите список ngList.
-2.3.2. Используя List<List<String>> noble_gases и
+2.3.2. Используя List<List<String>> les51_noble_gases и
        цикл for, заполните ngList данными.
 
 2.4. Внутри виджета NobleGasRibbon, создайте метод
@@ -35,7 +35,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/screens/noble_gases/widgets/noble_gases_model.dart';
+import 'package:flutter_your_name/screens/les51_noble_gases/widgets/noble_gases_model.dart';
 
 class NobleGasRibbon extends StatelessWidget {
   const NobleGasRibbon({Key? key}) : super(key: key);
@@ -120,12 +120,12 @@ class NobleGasRibbon extends StatelessWidget {
 }
 
 // ЗАДАНИЕ 2. Построение ленты виджетов.
-// 1.1. На основе данных таблицы noble_gases, создайте в этом файле класс описывающий каждый благородный газ.
+// 1.1. На основе данных таблицы les51_noble_gases, создайте в этом файле класс описывающий каждый благородный газ.
 // 1.2. Внутри класса определите поля и конструктор, у которого все аргументы именованные и required
 // Перейдите к файлу noble_gases_ribbon
 
 // 2.1. Создайте в этом файле stless виджет.
-// 2.2. Внутри виджета создайте списко с объектами класса , используя List<List<String>> noble_gases
+// 2.2. Внутри виджета создайте списко с объектами класса , используя List<List<String>> les51_noble_gases
 // 3. Внутри виджета функцию, возвращающую виджет-строку (аналог myRow() в проекте про телеграм)
 // 4. С помощью функции из п.3 и списка из п.2, создайте список виджетов, который
 // "правильно оформляет" данные из списка п.2. Поместите его в return Column. (см. my_row_panel)

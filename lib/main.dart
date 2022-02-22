@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/screens/les51_52/airport_scoreboard.dart';
+import 'package:flutter_your_name/screens/les52/airport_scoreboard.dart';
 
 void main() {
   runApp(const MyApp());

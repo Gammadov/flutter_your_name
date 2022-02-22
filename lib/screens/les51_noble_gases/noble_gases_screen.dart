@@ -17,8 +17,7 @@
 ---------------------------------------------------------*/
 
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/screens/noble_gases/widgets/noble_gases_ribbon.dart';
-import 'package:flutter_your_name/screens/telegram/widgets/my_row_panel.dart';
+import 'package:flutter_your_name/screens/les51_noble_gases/widgets/noble_gases_ribbon.dart';
 
 class NobleGasesScreen extends StatelessWidget {
   const NobleGasesScreen({Key? key}) : super(key: key);
