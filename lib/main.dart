@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/screens/airport_scoreboard/airport_scoreboard.dart';
-import 'package:flutter_your_name/screens/noble_gases/noble_gases_screen.dart';
-import 'package:flutter_your_name/screens/telegram/settings_les47.dart';
-import 'package:flutter_your_name/screens/telegram/settings.dart';
+import 'package:flutter_your_name/screens/les51_52/airport_scoreboard.dart';
 
 void main() {
   runApp(const MyApp());
