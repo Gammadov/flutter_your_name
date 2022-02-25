@@ -34,7 +34,6 @@
 
 -----------------------------------------------------*/
 
-
 import 'package:flutter/material.dart';
 
 class Country {
@@ -52,8 +51,8 @@ class Country {
       required this.total});
 }
 
-class MedalStandings extends StatelessWidget {
-  const MedalStandings({Key? key}) : super(key: key);
+class MedalStandingsIcons extends StatelessWidget {
+  const MedalStandingsIcons({Key? key}) : super(key: key);
 
 /*----------------------------------------------------------
 
@@ -90,16 +89,56 @@ class MedalStandings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<String> olympics22 = [
-      'Страна', 'Золото', 'Серебро', 'Бронза', 'Итого',
-      'Норвегия', '16', '8', '13', '37',
-      'Германия', '12', '10', '5', '27',
-      'Китай', '9', '4', '2', '15',
-      'США', '8', '10', '7', '25',
-      'Швеция', '8', '5', '5', '18',
-      'Нидерланды', '8', '5', '4', '17',
-      'Австрия', '7', '7', '4', '18',
-      'Швейцария', '7', '2', '5', '14',
-      'OKP', '6', '12', '14', '32',
+      'Страна',
+      'Золото',
+      'Серебро',
+      'Бронза',
+      'Итого',
+      'Норвегия',
+      '16',
+      '8',
+      '13',
+      '37',
+      'Германия',
+      '12',
+      '10',
+      '5',
+      '27',
+      'Китай',
+      '9',
+      '4',
+      '2',
+      '15',
+      'США',
+      '8',
+      '10',
+      '7',
+      '25',
+      'Швеция',
+      '8',
+      '5',
+      '5',
+      '18',
+      'Нидерланды',
+      '8',
+      '5',
+      '4',
+      '17',
+      'Австрия',
+      '7',
+      '7',
+      '4',
+      '18',
+      'Швейцария',
+      '7',
+      '2',
+      '5',
+      '14',
+      'OKP',
+      '6',
+      '12',
+      '14',
+      '32',
     ];
 
     List<Country> countryList = [];
@@ -134,17 +173,33 @@ class MedalStandings extends StatelessWidget {
     List<Widget> widgetList = [];
 
     for (var country in countryList) {
-      Widget design = Row(
+      Widget design = (country.country == 'Страна') ?
+      Row(
         children: [
-          Text(country.country),
-          Text(country.gold),
-          Text(country.silver),
-          Text(country.bronze),
+          SizedBox(width: 115, child: Text(country.country, style: TextStyle(fontWeight: FontWeight.bold),)),
+          Container(alignment: Alignment.centerLeft, width: 50, child: Icon(Icons.looks_one, color: Colors.orange)),
+          Container(alignment: Alignment.centerLeft, width: 50, child: Icon(Icons.looks_two, color: Colors.grey)),
+          Container(alignment: Alignment.centerLeft, width: 50, child: Icon(Icons.looks_3, color: Colors.brown)),
+          Container(alignment: Alignment.centerLeft, width: 50, child: Icon(Icons.functions, color: Colors.green)),
+        ],
+
+      )
+          :
+      Row(
+        children: [
+          SizedBox(width: 120, child: Text(country.country)),
+          SizedBox(width: 50, child: Text(country.gold)),
+          SizedBox(width: 50, child: Text(country.silver)),
+          SizedBox(width: 50, child: Text(country.bronze)),
           Text(country.total),
         ],
       );
 
-      widgetList.add(design);
+      widgetList.add(Padding(
+        padding: const EdgeInsets.only(left: 10),
+        child: design,
+      ));
+      widgetList.add(const Divider(thickness: 1));
     }
 
 /*----------------------------------------------------------
@@ -167,7 +222,10 @@ class MedalStandings extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: const Text('Медальный зачёт')),
-      body: Column(children: widgetList),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 10),
+        child: Column(children: widgetList),
+      ),
     );
   }
 }
