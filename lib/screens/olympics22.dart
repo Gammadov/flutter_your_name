@@ -95,56 +95,68 @@ class Country {
 
   Country(
       {required this.country,
-        required this.gold,
-        required this.silver,
-        required this.bronze,
-        required this.total});
+      required this.gold,
+      required this.silver,
+      required this.bronze,
+      required this.total});
 }
 
-class MedalStandingsIcons extends StatelessWidget {
-  const MedalStandingsIcons({Key? key}) : super(key: key);
-
-  Widget rowDesign(Country country){
-    if(country.country == 'Страна')
-     return Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(width: 115,
-              child: Text(country.country, style: const TextStyle(
-                  fontSize: 20, fontWeight: FontWeight.bold))),
-          SizedBox(
-              width: 70, child: Icon(Icons.looks_one, color: Colors.orange)),
-          SizedBox(width: 70, child: Icon(Icons.looks_two, color: Colors.grey)),
-          SizedBox(width: 70, child: Icon(Icons.looks_3, color: Colors.brown)),
-          SizedBox(
-              width: 57, child: Icon(Icons.functions, color: Colors.green)),
-        ],
-      );
-    else
-      return Row(
-      children: [
-        SizedBox(width: 140, child: Text(country.country, style: const TextStyle(fontSize: 20))),
-        SizedBox(width: 70, child: Text(country.gold, style: const TextStyle(fontSize: 20))),
-        SizedBox(width: 70, child: Text(country.silver, style: const TextStyle(fontSize: 20))),
-        SizedBox(width: 70, child: Text(country.bronze, style: const TextStyle(fontSize: 20))),
-        Text(country.total, style: const TextStyle(fontSize: 20)),
-      ],
-    );
-  }
+class MedalStandings extends StatelessWidget {
+  const MedalStandings({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     List<String> olympics22 = [
-      'Страна', 'Золото', 'Серебро', 'Бронза', 'Итого',
-      'Норвегия', '16', '8', '13', '37',
-      'Германия', '12', '10', '5', '27',
-      'Китай', '9', '4', '2', '15',
-      'США', '8', '10', '7', '25',
-      'Швеция', '8', '5', '5', '18',
-      'Нидерланды', '8', '5', '4', '17',
-      'Австрия', '7', '7', '4', '18',
-      'Швейцария', '7', '2', '5', '14',
-      'OKP', '6', '12', '14', '32',
+      'Страна',
+      'Золото',
+      'Серебро',
+      'Бронза',
+      'Итого',
+      'Норвегия',
+      '16',
+      '8',
+      '13',
+      '37',
+      'Германия',
+      '12',
+      '10',
+      '5',
+      '27',
+      'Китай',
+      '9',
+      '4',
+      '2',
+      '15',
+      'США',
+      '8',
+      '10',
+      '7',
+      '25',
+      'Швеция',
+      '8',
+      '5',
+      '5',
+      '18',
+      'Нидерланды',
+      '8',
+      '5',
+      '4',
+      '17',
+      'Австрия',
+      '7',
+      '7',
+      '4',
+      '18',
+      'Швейцария',
+      '7',
+      '2',
+      '5',
+      '14',
+      'OKP',
+      '6',
+      '12',
+      '14',
+      '32',
     ];
 
     List<Country> countryList = [];
@@ -179,19 +191,22 @@ class MedalStandingsIcons extends StatelessWidget {
     List<Widget> widgetList = [];
 
     for (var country in countryList) {
-      // Widget design =
-      // ;
+      Widget design = Row(
+        children: [
+          Text(country.country),
+          Text(country.gold),
+          Text(country.silver),
+          Text(country.bronze),
+          Text(country.total),
+        ],
+      );
 
-      widgetList.add(rowDesign(country));
-      widgetList.add(const Divider(thickness: 1));
+      widgetList.add(design);
     }
 
     return Scaffold(
       appBar: AppBar(title: const Text('Медальный зачёт')),
-      body: Padding(
-        padding: const EdgeInsets.only(left:10, top: 10),
-        child: Column(children: widgetList),
-      ),
+      body: Column(children: widgetList),
     );
   }
 }
