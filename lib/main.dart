@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/i_layout/my_stack.dart';
 import 'package:flutter_your_name/screens/les61/scrolling_screen.dart';
-
-import 'i_layout/my_buttons.dart';
-import 'i_layout/my_single_child_scroll.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,9 +10,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        body: myButtons(),
+        body: ScrollText(),
       ), // подключаем свои виджеты к home
     );
   }

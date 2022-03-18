@@ -32,8 +32,16 @@
 
 import 'package:flutter/material.dart';
 
-class ScrollText extends StatelessWidget {
+class ScrollText extends StatefulWidget {
   const ScrollText({Key? key}) : super(key: key);
+
+  @override
+  State<ScrollText> createState() => _ScrollTextState();
+}
+
+class _ScrollTextState extends State<ScrollText> {
+
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +82,22 @@ class ScrollText extends StatelessWidget {
             )
           ],
         ),
-        const Icon(Icons.add_circle_outlined, size: 200,)
+
+        Positioned(
+          right: 50,
+          bottom: 40,
+          child: ElevatedButton(
+            onPressed: () {
+              setState(() {
+                count += 1;
+              });
+            },
+            child: Text(
+              '+ $count',
+              style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+            ),
+          ),
+        )
       ]),
     );
   }
