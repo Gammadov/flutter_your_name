@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_your_name/screens/les68_recent_calls/recent_calls_screen.dart';
+import 'package:flutter_your_name/screens/les69_navigator/named_navigator.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,10 +10,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: RecentCalls(),
-      ), // подключаем свои виджеты к home
-    );
+    return MaterialApp(
+      home: const Scaffold(
+        body: Page1(),
+      ),
+      // подключаем свои виджеты к home
+
+        routes: <String, WidgetBuilder>{
+          '/page2': (BuildContext context) => const Page2(),
+        }
+        );
   }
 }

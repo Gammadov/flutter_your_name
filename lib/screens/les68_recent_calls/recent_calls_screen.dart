@@ -19,24 +19,11 @@ class _RecentCallsState extends State<RecentCalls> {
           padding: EdgeInsets.only(left: 55.0),
           child: Divider(thickness: 1),
         ),
-        itemCount: 50,
+        itemCount: 100,
+        physics: const BouncingScrollPhysics(),
       ),
     );
   }
 }
 
-
-class Some extends StatefulWidget {
-  const Some({Key? key}) : super(key: key);
-
-  @override
-  State<Some> createState() => _SomeState();
-}
-
-class _SomeState extends State<Some> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
 
