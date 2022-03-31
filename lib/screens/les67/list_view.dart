@@ -41,6 +41,7 @@ class _ScrollButtons1State extends State<ScrollButtons1> {
 
     return ListView.separated(
       itemCount: 300,
+         //update itemCount 
       itemBuilder: (_, int index) => Row(
         children: [
           Expanded(
