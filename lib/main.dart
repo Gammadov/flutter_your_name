@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_your_name/screens/les68_recent_calls/recent_calls_screen.dart';
+import 'package:flutter_your_name/screens/les69_navigator/my_navigator.dart';
 import 'package:flutter_your_name/screens/les69_navigator/named_navigator.dart';
 
 void main() {
@@ -11,14 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const Scaffold(
-        body: Page1(),
-      ),
+      // home: const Scaffold(
+      //   body: SecondScreen(),
+      // ),
       // подключаем свои виджеты к home
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const RecentCalls(),
 
-        routes: <String, WidgetBuilder>{
-          '/page2': (BuildContext context) => const Page2(),
-        }
-        );
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/second': (context) => const SecondScreen(),
+      },
+
+        initialRoute: '/second',
+    );
   }
 }
