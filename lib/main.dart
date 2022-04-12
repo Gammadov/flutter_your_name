@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_your_name/screens/les68_recent_calls/recent_calls_screen.dart';
 import 'package:flutter_your_name/screens/les69_navigator/my_navigator.dart';
 import 'package:flutter_your_name/screens/les69_navigator/named_navigator.dart';
+import 'package:flutter_your_name/screens/les73/les73.dart';
+import 'package:flutter_your_name/screens/les73/les73_gesture_detector%20.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +25,12 @@ class MyApp extends StatelessWidget {
 
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/second': (context) => const SecondScreen(),
+
+        '/lamp': (context) => const Lamp(),
+        '/GestureDetector': (context) => const myGestureDetector(),
       },
 
-        initialRoute: '/second',
+        initialRoute: '/GestureDetector',
     );
   }
 }
