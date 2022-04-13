@@ -4,6 +4,7 @@ import 'package:flutter_your_name/screens/les69_navigator/my_navigator.dart';
 import 'package:flutter_your_name/screens/les69_navigator/named_navigator.dart';
 import 'package:flutter_your_name/screens/les73/les73.dart';
 import 'package:flutter_your_name/screens/les73/les73_gesture_detector%20.dart';
+import 'package:flutter_your_name/screens/les73/les73_inkwell.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,9 +29,10 @@ class MyApp extends StatelessWidget {
 
         '/lamp': (context) => const Lamp(),
         '/GestureDetector': (context) => const myGestureDetector(),
+        '/InkWell': (context) => const myInkWell(),
       },
 
-        initialRoute: '/GestureDetector',
+        initialRoute: '/InkWell',
     );
   }
 }
