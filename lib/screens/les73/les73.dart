@@ -8,38 +8,31 @@ class Lamp extends StatefulWidget {
 }
 
 class _LampState extends State<Lamp> {
-  Color color = Colors.grey;
-  String text = 'Включить';
-  bool knopka = false;
+  bool nazhata = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: SizedBox(
-          height: 300,
-          child: Column(
-            children: [
-              Icon(Icons.lightbulb, size: 150, color: color,),
-              OutlinedButton(
-                onPressed: (){
-                  setState(() {
-                    knopka = !knopka;
-                    if (knopka) {
-                      color = Colors.yellow;
-                      text = 'Выключить';
-                    }
-                    else{
-                      color = Colors.grey;
-                      text = 'Включить';
-                    }
-                  });
-                },
-                child: Text(text, style: const TextStyle(fontSize: 50)),
-              )
-            ],
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.lightbulb,
+            size: 150,
+            color: nazhata ? Colors.yellow : Colors.grey,
           ),
-        ),
+          TextButton(
+            onPressed: () {
+              setState(() {
+                nazhata = !nazhata;
+              });
+            },
+            child: Text(
+              nazhata ? 'Включить' : 'Выключить',
+              style: const TextStyle(fontSize: 50),
+            ),
+          ),
+        ],
       ),
     );
   }
