@@ -8,64 +8,39 @@ class myInkWell extends StatefulWidget {
 }
 
 class _myInkWellState extends State<myInkWell> {
-  int pink = 0;
-  int yellow = 0;
-  int blue = 0;
+  int count = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
+          Expanded(child: Container(color: Colors.green[300])),
           Expanded(
               child: InkWell(
-            onTap: () {
-              setState(() {
-                pink += 1;
-              });
-            },
-            child: Ink(
-              width: double.infinity,
-              color: Colors.pinkAccent,
-              child: Text(
-                'нажали $pink раз',
-                style: TextStyle(fontSize: 65),
-              ),
-            ),
-          )),
-          Expanded(
-              child: InkWell(
-            onTap: () {
-              setState(() {
-                yellow += 1;
-              });
-            },
-            child: Ink(
-              width: double.infinity,
-              color: Colors.yellow,
-              child: Text(
-                'нажали $yellow раз',
-                style: TextStyle(fontSize: 65),
-              ),
-            ),
-          )),
-          Expanded(
-              child: InkWell(
-            onTap: () {
-              setState(() {
-                blue += 1;
-              });
-            },
-            child: Ink(
-              width: double.infinity,
-              color: Colors.indigo,
-              child: Text(
-                'нажали $blue раз',
-                style: TextStyle(fontSize: 65),
-              ),
-            ),
-          )),
+                highlightColor: Colors.pinkAccent,
+                hoverColor: Colors.yellow,
+                splashColor: Colors.black,
+                radius: 50,
+                onTap: (){
+                  setState(() {
+                    count += 1;
+                  });
+                },
+                child: Ink(
+                  width: double.infinity,
+                  color: Colors.blue,
+                  child: Center(
+                    child: Text(
+                      'нажали $count раз',
+                      style: const TextStyle(fontSize: 65),
+                    ),
+                  ),
+                ),
+              )),
+          Expanded(child: Container(color: Colors.green[300])),
         ],
       ),
     );
   }
+}
