@@ -86,7 +86,9 @@ class _myBoxDecorationState extends State<myBoxDecoration> {
               Container(
                 width: 400,
                 height: 250,
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  color: Colors.orange,
+                ),
                 child: Center(
                   child: ElevatedButton(
                     onPressed: (){
