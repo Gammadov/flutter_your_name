@@ -56,7 +56,6 @@
 //   }
 // }
 
-
 import 'package:flutter/material.dart';
 
 class myBoxDecoration extends StatefulWidget {
@@ -86,12 +85,16 @@ class _myBoxDecorationState extends State<myBoxDecoration> {
               Container(
                 width: 400,
                 height: 250,
+                // color: Colors.green,
                 decoration: BoxDecoration(
                   color: Colors.orange,
+                  boxShadow: [
+                    BoxShadow(color: Colors.lightGreenAccent, blurRadius: 10, spreadRadius: 30, offset: Offset(20, -40)),
+                  ],
                 ),
                 child: Center(
                   child: ElevatedButton(
-                    onPressed: (){
+                    onPressed: () {
                       setState(() {
                         nazhata = !nazhata;
                       });
