@@ -5,6 +5,9 @@ import 'package:flutter_your_name/screens/les73/les73.dart';
 import 'package:flutter_your_name/screens/les73/les73_gesture_detector%20.dart';
 import 'package:flutter_your_name/screens/les74_inkwell/les74_inkwell.dart';
 import 'package:flutter_your_name/screens/les75_box_decoration/les75_box_decoration.dart';
+import 'package:flutter_your_name/screens/les98_2/no_inherited.dart';
+
+import 'advanced/bottom_sheet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // When navigating to the "/" route, build the FirstScreen widget.
         '/': (context) => const RecentCalls(),
+        '/1': (context) => const TestPage(),
 
         // When navigating to the "/second" route, build the SecondScreen widget.
         '/second': (context) => const SecondScreen(),
@@ -31,9 +35,11 @@ class MyApp extends StatelessWidget {
         '/GestureDetector': (context) => const myGestureDetector(),
         '/InkWell': (context) => const myInkWell(),
         '/BoxDecoration': (context) => const myBoxDecoration(),
+
+        '/Inherited': (context) => NoInherited(),
       },
 
-      initialRoute: '/BoxDecoration',
+      initialRoute: '/Inherited',
     );
   }
 }
