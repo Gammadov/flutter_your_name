@@ -7,6 +7,8 @@ import 'package:flutter_your_name/screens/les74_inkwell/les74_inkwell.dart';
 import 'package:flutter_your_name/screens/les75_box_decoration/les75_box_decoration.dart';
 import 'package:flutter_your_name/screens/les98_inherited/inherited.dart';
 import 'package:flutter_your_name/screens/les98_inherited/no_inherited.dart';
+import 'package:flutter_your_name/screens/les99_inherited_2/inherited_99.dart';
+import 'package:flutter_your_name/screens/les99_inherited_2/no_inherited_99.dart';
 
 import 'advanced/bottom_sheet.dart';
 
@@ -39,9 +41,12 @@ class MyApp extends StatelessWidget {
 
         '/NoInherited': (context) => const Screen1(value: 10),
         '/Inherited': (context) => const Screen2(value: 10),
+
+        '/NoInherited_99': (context) => Screen1_99(value: -10, step: 3),
+        '/Inherited_99': (context) => Screen2_99(value: 0, step: 2),
       },
 
-      initialRoute: '/Inherited',
+      initialRoute: '/Inherited_99',
     );
   }
 }
