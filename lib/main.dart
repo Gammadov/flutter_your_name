@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_your_name/screens/les102_stream_builder/stream_color.dart';
 import 'package:flutter_your_name/screens/les68_recent_calls/recent_calls_screen.dart';
 import 'package:flutter_your_name/screens/les69_navigator/named_navigator.dart';
 import 'package:flutter_your_name/screens/les73/les73.dart';
@@ -44,9 +45,11 @@ class MyApp extends StatelessWidget {
 
         '/NoInherited_99': (context) => Screen1_99(value: -10, step: 3),
         '/Inherited_99': (context) => Screen2_99(value: 0, step: 2),
+
+        '/ColorScreen': (context) => const ColorScreen(),
       },
 
-      initialRoute: '/Inherited_99',
+      initialRoute: '/ColorScreen',
     );
   }
 }
