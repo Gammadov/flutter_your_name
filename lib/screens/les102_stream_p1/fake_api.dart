@@ -10,9 +10,6 @@ class FakeApi {
     final response = await http.get(Uri.parse('https://colornames.org/random/json/'));
     final jsonString = jsonDecode(response.body);
 
-    print(jsonString['name']);
-    print(jsonString['hexCode']);
-
     return {
       'name': jsonString['name'],
       'value': jsonString['hexCode'],
