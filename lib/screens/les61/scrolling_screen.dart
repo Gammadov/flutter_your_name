@@ -25,7 +25,7 @@
      physics: const BouncingScrollPhysics().
      child: Column, внутри которой список widgets.
 
-6. В файле main.dart найдите виджет MaterialApp. В параметре
+6. В файле bloc_on_streams.dart найдите виджет MaterialApp. В параметре
      home укажите виджет ScrollText.
 
 ----------------------------------------------------------*/

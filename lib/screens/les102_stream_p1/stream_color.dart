@@ -380,7 +380,10 @@ class _ColorScreenState extends State<ColorScreen> {
   int colorInt = 0xFF9E9E9E;
   String colorName = 'No color';
 
-  singleColor() {
+  Stream<Map<String, dynamic>>? colorStream;
+  StreamSubscription? listener;
+
+  void singleColor() {
     Future response = FakeApi.getColor();
     response.then((map) {
       setState(() {
@@ -390,16 +393,26 @@ class _ColorScreenState extends State<ColorScreen> {
     });
   }
 
-  hundredColors() {
-    Stream<Map<String, dynamic>> colors =
-        FakeApi.get100colors(const Duration(milliseconds: 300));
+  void hundredColors() {
+    colorStream = FakeApi.get100colors(const Duration(milliseconds: 300));
 
-    StreamSubscription listener = colors.listen((map) {
+    listener = colorStream!.listen((map) {
       setState(() {
         colorInt = int.parse('0xFF' + map['value']!);
         colorName = map['name']!;
       });
     });
+  }
+
+  void pauseStream(){
+    if(listener != null && !listener!.isPaused) listener!.pause();
+  }
+
+  void resumeStream(){
+    if(listener != null) listener!.resume();
+  }
+  void cancelStream(){
+    if(listener != null) listener!.cancel();
   }
 
   @override
@@ -414,28 +427,32 @@ class _ColorScreenState extends State<ColorScreen> {
           children: [
             const Spacer(),
             Container(
+              height: 90,
               width: double.infinity,
               padding: const EdgeInsets.symmetric(vertical: 20),
               alignment: Alignment.center,
-              child: Text(
-                colorName,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
-                    shadows: <Shadow>[
-                      Shadow(
-                        offset: Offset(1, 1),
-                        blurRadius: 5,
-                      )
-                    ]),
+              child: FittedBox(
+                fit:BoxFit.scaleDown,
+                child: Text(
+                  colorName,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                      fontSize: 40,
+                      color: Colors.white,
+                      shadows: <Shadow>[
+                        Shadow(
+                          offset: Offset(1, 1),
+                          blurRadius: 5,
+                        )
+                      ]),
+                ),
               ),
             ),
             const SizedBox(height: 30),
             ElevatedButton(
               // future button
-              style: ElevatedButton.styleFrom(primary: sysColor),
               onPressed: singleColor,
+              style: ElevatedButton.styleFrom(primary: sysColor),
               child: Container(
                 width: 200,
                 padding: const EdgeInsets.symmetric(vertical: 10),
@@ -455,11 +472,56 @@ class _ColorScreenState extends State<ColorScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 alignment: Alignment.center,
                 child: const Text(
-                  'Stream',
+                  'Stream and Subs',
                   style: TextStyle(fontSize: 20),
                 ),
               ),
               style: ElevatedButton.styleFrom(primary: sysColor),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              // stream pause
+              onPressed: pauseStream,
+              child: Container(
+                width: 100,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                alignment: Alignment.center,
+                child: const Text(
+                  'Pause',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              style: ElevatedButton.styleFrom(primary: Colors.black54),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              // stream resume
+              onPressed: resumeStream,
+              child: Container(
+                width: 100,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                alignment: Alignment.center,
+                child: const Text(
+                  'Resume',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              style: ElevatedButton.styleFrom(primary: Colors.black54),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              // streamSubscribe cancel
+              onPressed: cancelStream,
+              child: Container(
+                width: 100,
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                alignment: Alignment.center,
+                child: const Text(
+                  'Cancel',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ),
+              style: ElevatedButton.styleFrom(primary: Colors.black54),
             ),
             const Spacer(),
           ],

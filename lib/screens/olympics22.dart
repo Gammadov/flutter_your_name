@@ -79,7 +79,7 @@
      appBar: AppBar(title: ). В title поместите текст 'Медальный зачёт'.
      body: Внутри body поместите Column(). В агрументе колонки children укажите widgetList.
 
-4.3. В файле main.dart найдите виджет MaterialApp. В параметре
+4.3. В файле bloc_on_streams.dart найдите виджет MaterialApp. В параметре
      home укажите виджет MedalStandings.
 
 ----------------------------------------------------------*/
